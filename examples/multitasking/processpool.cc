@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <assert.h>
 #include <unistd.h>
+#include <string.h>
 #include <sys/socket.h>
+#include <arpa/inet.h>
 #include <sys/epoll.h>
+#include <fcntl.h>
 #include <signal.h>
 #include <sys/types.h>
 #include <errno.h>
@@ -48,7 +51,6 @@ private:
     processpool(int listenfd, int num_process);
 
     void setup_epoll();
-    void epoll_addfd(int epollfd, int fd);
 
     void setup_sig_pipe();
 
@@ -56,6 +58,7 @@ private:
     void run_child();
 
 private:
+    // service socket (can be static ?)
     int m_listenfd;
 
     int m_epollfd;
@@ -70,6 +73,7 @@ private:
     static const int k_child_rfd_idx = 0;
     static const int k_max_num_process = 10;
     static const int k_max_num_epoll_event = 1000;
+    static const int k_max_clientfd = 65536;
 
 };
 
@@ -129,11 +133,15 @@ void processpool<T>::setup_epoll() {
 }
 
 static int setnonblocking(int fd) {
-    return 0;
+    int old_opt = fcntl(fd, F_GETFL);
+    int new_opt = old_opt | O_NONBLOCK;
+    fcntl(fd, F_SETFL, new_opt);
+    return old_opt;
 }
 
-template<typename T>
-void processpool<T>::epoll_addfd(int epollfd, int fd) {
+void epoll_addfd(int epollfd, int fd) {
+
+    setnonblocking(fd);
 
     epoll_event ev;
     ev.events = EPOLLIN | EPOLLET;
@@ -143,10 +151,10 @@ void processpool<T>::epoll_addfd(int epollfd, int fd) {
 }
 
 void sio_handler(int signum) {
-
+    int save_errno = errno;
     char msg = static_cast<char>(signum);
     send(sig_pipefd[k_sig_wfd_idx], &msg, 1, 0);
-
+    errno = save_errno;
 }
 
 void add_sigaction(int signum, void (*func)(int)) {
@@ -176,16 +184,61 @@ void processpool<T>::setup_sig_pipe() {
 
 template<typename T>
 void processpool<T>::run_parent() {
+
+    setup_epoll();
+
+    // ipc with children is set to m_sub_process[].m_pipefd[wfd]
+
+    // listen to the CREATED services socket
+    epoll_addfd(m_epollfd, m_listenfd);
+    // sio
+    setup_sig_pipe();
+
+    epoll_event ev[k_max_num_epoll_event];
+    int num = 0;
+    int ret = -1;
+
+    int sub_process_idx = 0;
+
     while (1) {
-        sleep(3);
-        for (int i = 0; i < m_num_process; i++) {
-            char msg[10];
-            sprintf(msg, "pa -> %d", i);
-            send(m_sub_process[i].m_pipefd[k_parent_wfd_idx], msg, sizeof(msg), 0);
-            printf("[parent] sent \"%s\" to %d\n", msg, i);
+        num = epoll_wait(m_epollfd, ev, k_max_num_epoll_event, -1);
+        if (num < 0 && errno != EAGAIN) {
+            printf("[ERROR] epoll failure\n");
+            break;
         }
-//        sleep(2);
-//        printf("[parent]\n");
+
+        for (int i = 0; i < num; i++) {
+            int ev_fd = ev[i].data.fd;
+            uint32_t ev_event = ev[i].events;
+            if (ev_fd == m_listenfd) {
+                // select a child in Round Robin style
+                int sel = sub_process_idx;
+                do {
+                    if (m_sub_process[sel].m_pid != -1) {
+                        break;
+                    }
+                    sel = (sel + 1) % m_num_process;
+                } while (sel != sub_process_idx);
+                // TODO: exit parent if all sub_process exit
+
+                // update Round Robin sub process pointer
+                sub_process_idx = (sel + 1) % m_num_process;
+
+                // send a flag to the selected sub process
+                // NOTE: accept(m_listenfd) in the selected sub process
+                int has_new_conn = 1;
+                send(m_sub_process[sel].m_pipefd[k_parent_wfd_idx], 
+                     (char*)&has_new_conn, sizeof(has_new_conn), 0);
+                printf("[parent] notify proc-%d\n", sel);
+            }
+        }
+//        sleep(3);
+//        for (int i = 0; i < m_num_process; i++) {
+//            char msg[10];
+//            sprintf(msg, "pa -> %d", i);
+//            send(m_sub_process[i].m_pipefd[k_parent_wfd_idx], msg, sizeof(msg), 0);
+//            printf("[parent] sent \"%s\" to %d\n", msg, i);
+//        }
     }
 }
 
@@ -204,6 +257,9 @@ void processpool<T>::run_child() {
     int num = 0;
     int ret = -1;
 
+    T* clients = new T[k_max_clientfd];
+    assert(clients);
+
     while (1) {
         num = epoll_wait(m_epollfd, ev, k_max_num_epoll_event, -1);
         if (num < 0 && errno != EINTR) {
@@ -215,6 +271,8 @@ void processpool<T>::run_child() {
             int ev_fd = ev[i].data.fd;
             uint32_t ev_event = ev[i].events;
             if (ev_fd == ipc_pipefd && (ev_event & EPOLLIN)) {
+                // retrive notify from parent process
+                // and accept new client from service socket
                 char msg[10];
                 ret = recv(ev_fd, msg, sizeof(msg), 0);
                 if ((ret < 0 && errno != EAGAIN) || !ret) {
@@ -222,10 +280,28 @@ void processpool<T>::run_child() {
                     printf("[proc-%d] *\n", m_sub_idx);
                     continue;
                 } else {
-                    printf("[proc-%d] got msg: \"%s\"\n", m_sub_idx, msg);
+                    //assert(errno == EAGAIN);
+                    printf("[proc-%d] (errno = %d) got msg: \"%s\"\n", errno, m_sub_idx, msg);
+                    // (a) accept a client from the CREATED service socket
+                    struct sockaddr_in client_addr;
+                    socklen_t client_addrlen;
+                    int client_sockfd = accept(m_listenfd, 
+                                           (struct sockaddr *)&client_addr,
+                                           &client_addrlen);
+                    if (client_sockfd < 0) {
+                        printf("[proc-%d] [accept] errno = %d\n", m_sub_idx, errno);
+                        continue;
+                    }
+                    // TODO: (b) init for new client
+                    clients[client_sockfd].init(m_epollfd, client_sockfd, client_addr);
+
+                    // TODO: (c) add accepted client_sockfd to epoll
+                    epoll_addfd(m_epollfd, client_sockfd);
+
                 }
 
             } else if (ev_fd == sig_pipefd[k_sig_rfd_idx] && (ev_event & EPOLLIN)) {
+                // process signal
                 char sigs[10];
                 ret = recv(ev_fd, sigs, sizeof(sigs), 0);
                 if (ret <= 0) {
@@ -251,7 +327,8 @@ void processpool<T>::run_child() {
                 
             } else if (ev_event & EPOLLIN) {
                 // TODO: process client
-                assert(0);
+                clients[ev_fd].process();
+                //assert(0);
 
             } else {
                 continue;
@@ -263,11 +340,75 @@ void processpool<T>::run_child() {
     }
 }
 
+class client {
+public:
+    client() {}
+    ~client() {}
+    void init(int epollfd, int sockfd, const struct sockaddr_in);
+    void process();
+
+private:
+    static const int k_recvbuf_size = 32;
+
+    int m_epollfd;
+    int m_sockfd;
+    struct sockaddr_in m_addr;
+    
+    char recvbuf[k_recvbuf_size];
+
+};
+
+void client::init(int epollfd, int sockfd, const struct sockaddr_in addr)
+{
+    m_epollfd = epollfd;
+    m_sockfd = sockfd;
+    m_addr = addr;
+    memset(recvbuf, 0, sizeof(recvbuf));
+    printf("client init\n");
+}
+
+void client::process() {
+    int bytes_read = 0;
+
+    while (1) {
+        bytes_read = recv(m_sockfd, recvbuf, k_recvbuf_size - 1, 0);
+        if (bytes_read <= 0) {
+            if (errno == EAGAIN || errno == EWOULDBLOCK) {
+                printf("[client] no data to process\n");
+            }
+            break;
+        } else {
+            char ip[16];
+            printf("[client] recv from (%s:%d): %s\n", 
+                   inet_ntop(AF_INET, &m_addr.sin_addr, ip, INET_ADDRSTRLEN), 
+                   ntohs(m_addr.sin_port),
+                   recvbuf);
+        }
+    }
+
+    printf("client processed\n");
+}
+
 int main() {
     printf("hello in vscode\n");
 
-    int listenfd = 0;
-    processpool<int>* pool = processpool<int>::create(listenfd, 3);
+    int listenfd = socket(AF_INET, SOCK_STREAM, 0);
+    assert(listenfd >= 0);
+
+    int ret;
+
+    struct sockaddr_in addr;
+    addr.sin_family = AF_INET;
+    inet_pton(AF_INET, "192.168.56.2", &addr.sin_addr);
+    addr.sin_port = htons(11111);
+
+    ret = bind(listenfd, (struct sockaddr *)&addr, sizeof(addr));
+    assert(ret != -1);
+
+    ret = listen(listenfd, 5);
+    assert(ret != -1);
+
+    processpool<client>* pool = processpool<client>::create(listenfd, 3);
 
     pool->run();
 
