@@ -288,6 +288,8 @@ void processpool<T>::run_parent() {
 //            printf("[parent] sent \"%s\" to %d\n", msg, i);
 //        }
     }
+
+    close(m_epollfd);
 }
 
 template<typename T>
@@ -396,13 +398,22 @@ void processpool<T>::run_child() {
 //        sleep(1);
 //        printf("[%d]\n", m_sub_idx);
     }
+
+    for (int fd = 0; fd < k_max_clientfd; fd++) {
+        if (clients[fd].is_init(fd)) {
+            close(fd);
+            printf("[proc-%d] close socket: %d\n", m_sub_idx, fd);
+        }
+    }
+    close(m_epollfd);
 }
 
 class client {
 public:
-    client() {}
+    client() : m_sockfd(-1) {}
     ~client() {}
     void init(int epollfd, int sockfd, const struct sockaddr_in);
+    int is_init(int expected_sockfd);
     void process();
 
 private:
@@ -424,6 +435,10 @@ void client::init(int epollfd, int sockfd, const struct sockaddr_in addr)
     memset(recvbuf, 0, sizeof(recvbuf));
     printf("client inited\n");
     printf("--------\n");
+}
+
+int client::is_init(int expected_sockfd) {
+    return m_sockfd == expected_sockfd;
 }
 
 void client::process() {
