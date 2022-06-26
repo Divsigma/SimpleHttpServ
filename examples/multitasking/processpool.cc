@@ -67,6 +67,8 @@ private:
     int m_sub_idx;
     process* m_sub_process;
 
+    int m_stop;
+
     static processpool<T>* m_instance;
 
     static const int k_parent_wfd_idx = 1;
@@ -85,7 +87,11 @@ processpool<T>* processpool<T>::m_instance = NULL;
 // processpool constructor
 template<typename T>
 processpool<T>::processpool(int listenfd, int num_process)
- : m_listenfd(listenfd), m_num_process(num_process), m_sub_idx(-1), m_epollfd(-1)
+ : m_listenfd(listenfd), 
+   m_num_process(num_process), 
+   m_sub_idx(-1), 
+   m_epollfd(-1),
+   m_stop(0)
 {
     assert(m_num_process >= 0 && m_num_process <= k_max_num_process);
 
@@ -141,7 +147,7 @@ static int setnonblocking(int fd) {
 
 void epoll_addfd(int epollfd, int fd) {
 
-    setnonblocking(fd);
+    //setnonblocking(fd);
 
     epoll_event ev;
     ev.events = EPOLLIN | EPOLLET;
@@ -200,7 +206,7 @@ void processpool<T>::run_parent() {
 
     int sub_process_idx = 0;
 
-    while (1) {
+    while (!m_stop) {
         num = epoll_wait(m_epollfd, ev, k_max_num_epoll_event, -1);
         if (num < 0 && errno != EAGAIN) {
             printf("[ERROR] epoll failure\n");
@@ -260,7 +266,7 @@ void processpool<T>::run_child() {
     T* clients = new T[k_max_clientfd];
     assert(clients);
 
-    while (1) {
+    while (!m_stop) {
         num = epoll_wait(m_epollfd, ev, k_max_num_epoll_event, -1);
         if (num < 0 && errno != EINTR) {
             printf("[ERROR] epoll failure\n");
@@ -280,8 +286,7 @@ void processpool<T>::run_child() {
                     printf("[proc-%d] *\n", m_sub_idx);
                     continue;
                 } else {
-                    //assert(errno == EAGAIN);
-                    printf("[proc-%d] (errno = %d) got msg: \"%s\"\n", errno, m_sub_idx, msg);
+                    printf("[proc-%d] (errno = %d) got msg: \"%s\"\n", m_sub_idx, errno, msg);
                     // (a) accept a client from the CREATED service socket
                     struct sockaddr_in client_addr;
                     socklen_t client_addrlen;
@@ -297,6 +302,7 @@ void processpool<T>::run_child() {
 
                     // TODO: (c) add accepted client_sockfd to epoll
                     epoll_addfd(m_epollfd, client_sockfd);
+                    setnonblocking(client_sockfd);
 
                 }
 
@@ -316,7 +322,7 @@ void processpool<T>::run_child() {
                             case SIGINT:
                             case SIGTERM: {
                                 printf("[proc-%d] got SIGTERM | SIGINT\n", m_sub_idx);
-                                // TODO: stop current process
+                                m_stop = 1;
                                 break;
                             } 
                             default:
@@ -364,7 +370,8 @@ void client::init(int epollfd, int sockfd, const struct sockaddr_in addr)
     m_sockfd = sockfd;
     m_addr = addr;
     memset(recvbuf, 0, sizeof(recvbuf));
-    printf("client init\n");
+    printf("client inited\n");
+    printf("--------\n");
 }
 
 void client::process() {
@@ -374,7 +381,7 @@ void client::process() {
         bytes_read = recv(m_sockfd, recvbuf, k_recvbuf_size - 1, 0);
         if (bytes_read <= 0) {
             if (errno == EAGAIN || errno == EWOULDBLOCK) {
-                printf("[client] no data to process\n");
+                printf("[client] no data to process, errno = %d\n", errno);
             }
             break;
         } else {
@@ -387,6 +394,7 @@ void client::process() {
     }
 
     printf("client processed\n");
+    printf("--------\n");
 }
 
 int main() {
@@ -403,7 +411,10 @@ int main() {
     addr.sin_port = htons(11111);
 
     ret = bind(listenfd, (struct sockaddr *)&addr, sizeof(addr));
-    assert(ret != -1);
+    if (ret == -1) {
+        printf("[bind] errno = %d\n", errno);
+        return 0;
+    }
 
     ret = listen(listenfd, 5);
     assert(ret != -1);
