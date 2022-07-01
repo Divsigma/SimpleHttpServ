@@ -71,6 +71,8 @@ void RespondHelloHTTP(int peer_sockfd, struct sockaddr_in peer_sockaddr);
 
 static void HandleTERM(int sig) {
   kStop = true;
+  printf("GOT SIGTERM\n");
+  exit(0);
 }
 
 void PrintErrno(const char *tag) {
@@ -141,7 +143,7 @@ int main(int argc, char *argv[]) {
   // Keep waiting for SIGTERM
   while (!kStop) {
 
-    sleep(1);
+    //sleep(5);
 
     // Accept peer socket and handle
     struct sockaddr_in peer_sockaddr;
@@ -154,6 +156,10 @@ int main(int argc, char *argv[]) {
     if (peer_sockfd == -1) {
       PrintErrnoAndExist("accept");
     } else {
+      
+      printf("========================\n"
+             "----[[Accepted New Socket]]----\n");
+//      close(peer_sockfd);
 
       ReqStatMach req_parser;
       req_parser.req_sockfd = peer_sockfd;
@@ -165,24 +171,28 @@ int main(int argc, char *argv[]) {
       req_parser.check_stat = CHECK_STAT_REQLINE;
       req_parser.result = RES_NO_REQUEST;
 
+      printf("----[[RecvAndParse]]----\n");
       while (req_parser.result == RES_NO_REQUEST) {
         RecvAndParse(&req_parser);
       }
-      printf("OOOOOOOOOOUT of while\n");
+      printf("----[[Done RecvAndParse]]----\n");
 
+      printf("----[[Response]]----\n");
       switch (req_parser.result) {
         case RES_GOT_REQUEST:
-          printf("[~] got request\n====\n");
+          printf("[~] got request\n----------------\n");
           // Respond 'Hello' on any Request
           RespondHelloHTTP(peer_sockfd, peer_sockaddr);
           break;
         case RES_DONE_RECV:
-          printf("[~] done receiving\n====\n");
+          printf("[~] done receiving\n----------------\n");
           break;
         default:
-          printf("[x] req_parser.result = %d\n====\n", req_parser.result);
+          printf("[x] req_parser.result = %d\n----------------\n",
+                 req_parser.result);
           break;
       }
+      printf("----[[Done Response]]----\n========================\n");
 
       close(peer_sockfd);
 
@@ -191,6 +201,8 @@ int main(int argc, char *argv[]) {
   }
 
   close(my_sockfd);
+
+  printf(">>>> CLOSE <<<<\n");
 
   return 0;
 
@@ -236,13 +248,14 @@ LINE_STAT CheckOneLine(ReqStatMach *req_parser) {
 
 }
 
-RESULT_CODE ParseReqLine(const char *line) {
+RESULT_CODE ParseRequestUri(const char *line) {
 
   // Parse method
   const char *method_end = strpbrk(line, " \t");
   if (!strncasecmp(line, "GET", (char *)method_end - (char *)line)) {
     printf("[Method] GET\n");
   } else {
+    printf("[Unsupport Method]\n");
     return RES_BAD_REQUEST;
   }
 
@@ -252,6 +265,7 @@ RESULT_CODE ParseReqLine(const char *line) {
   if ((char *)uri_end > (char *)line) {
     printf("[URI] %.*s\n", (int)((char *)uri_end - (char *)line), line);
   } else {
+    printf("[Parse URI error] %s\n", line);
     return RES_BAD_REQUEST;
   }
 
@@ -259,21 +273,24 @@ RESULT_CODE ParseReqLine(const char *line) {
   line = (char *)uri_end + 1;
   if (!strncasecmp(line, "HTTP/1.1", 8)) {
     printf("[Version] %s\n", line);
+  } else if (!strncasecmp(line, "HTTP/1.0", 8)) {
+    printf("[Version] %s\n", line);
   } else {
+    printf("[Unsupport Version]\n");
     return RES_BAD_REQUEST;
   }
   
   return RES_NO_REQUEST;
 }
 
-RESULT_CODE ParseHeader(const char *line) {
+RESULT_CODE ParseHeaders(const char *line) {
   if (line == nullptr) {
-    printf("[ERROR] ParseHeader: line is null\n");
+    printf("[ERROR] ParseHeaders: line is null\n");
     return RES_INTERNAL_ERROR;
   } else if (line[0] == '\0') {
     return RES_GOT_REQUEST;
   } else {
-    printf("[WARNING] ParseHeader: header is not supported\n"
+    printf("[WARNING] ParseHeaders: all headers are not parsed now\n"
            "      --> %s\n", line);
   }
 
@@ -285,6 +302,7 @@ void ParseBatch(ReqStatMach *req_parser) {
   LINE_STAT *line_stat = &(req_parser->lastline_stat);
 
   while ( ((*line_stat) = CheckOneLine(req_parser)) == LINE_STAT_OK ) {
+    printf("ParseBatch: (in while) line_stat = %d\n", *line_stat);
     char *cur_line = req_parser->recv_buf + req_parser->linest_idx;
     req_parser->linest_idx = req_parser->checked_idx;
     // Test: CheckOneLine()
@@ -294,14 +312,17 @@ void ParseBatch(ReqStatMach *req_parser) {
     //}
     switch (req_parser->check_stat) {
       case CHECK_STAT_REQLINE: {
-        req_parser->result = ParseReqLine(cur_line);
+        req_parser->result = ParseRequestUri(cur_line);
         // Transfer check_stat
-        if (req_parser->result == RES_NO_REQUEST)
+        if (req_parser->result == RES_NO_REQUEST) {
+          printf("[Done ParseRequestUri]\n");
           req_parser->check_stat = CHECK_STAT_HEADER;
+        }
         break;
       }
       case CHECK_STAT_HEADER: {
-        req_parser->result = ParseHeader(cur_line);
+        req_parser->result = ParseHeaders(cur_line);
+        printf("[Done ParseHeaders]\n");
         // check_stat is transfered in return value of
         // ParseHeader()
         break;
@@ -325,10 +346,13 @@ void ParseBatch(ReqStatMach *req_parser) {
         continue;
       default:
         // Whether GOT_REQUEST or ERROR, return
+        printf("[Done ParseBatch] RETURN req_parse->result = %d\n",
+               req_parser->result);
         return;
     }
 
   }
+  printf("ParseBatch: (out while) line_stat = %d\n", *line_stat);
 
   switch (*line_stat) {
     case LINE_STAT_OPEN:
@@ -339,10 +363,15 @@ void ParseBatch(ReqStatMach *req_parser) {
       req_parser->result = RES_BAD_REQUEST;
       return;
   }
-
+  
+  printf("[Done ParseBatch] RETURN req_parse->result = %d\n",
+         req_parser->result);
+        
 }
 
 void RecvAndParse(ReqStatMach *req_parser) {
+  printf("'''\n");
+
   // Receive a new batch of data in BLOCKING way
   int read_size = recv(req_parser->req_sockfd,
                        req_parser->recv_buf + req_parser->read_idx,
@@ -360,11 +389,10 @@ void RecvAndParse(ReqStatMach *req_parser) {
   // Parse this batch 
   req_parser->read_idx += read_size;
 
-  printf("-------------------------------\n");
   printf("%s\n", req_parser->recv_buf);
   printf("read_idx=%d checked_idx=%d\n",
          req_parser->read_idx, req_parser->checked_idx);
-  printf("-------------------------------\n");
+  printf("'''\n");
 
   ParseBatch(req_parser);
 
@@ -415,5 +443,5 @@ void RespondHelloHTTP(int peer_sockfd, struct sockaddr_in peer_sockaddr) {
       iov[1].iov_len  = databuf_used_len;
       
       ret = writev(peer_sockfd, iov, iovcnt);
- 
+
 }
