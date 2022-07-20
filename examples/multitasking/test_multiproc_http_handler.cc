@@ -13,7 +13,7 @@
 #include "processpool.h"
 #include "nonblock_http_handler.h"
 
-int main() {
+int main(int argc, char *argv[]) {
     printf("hello in vscode\n");
 
     int listenfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -23,8 +23,8 @@ int main() {
 
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
-    inet_pton(AF_INET, "192.168.56.2", &addr.sin_addr);
-    addr.sin_port = htons(11111);
+    inet_pton(AF_INET, argv[1], &addr.sin_addr);
+    addr.sin_port = htons(atoi(argv[2]));
 
     ret = bind(listenfd, (struct sockaddr *)&addr, sizeof(addr));
     if (ret == -1) {

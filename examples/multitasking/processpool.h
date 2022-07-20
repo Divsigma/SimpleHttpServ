@@ -79,6 +79,7 @@ private:
     static const int k_max_num_process = 10;
     static const int k_max_num_epoll_event = 1000;
     static const int k_max_clientfd = 65536;
+    static const int k_max_accept_n = 100;
 
 };
 
@@ -161,7 +162,8 @@ void epoll_addfd(int epollfd, int fd) {
 
 void epoll_delfd(int epollfd, int fd) {
     epoll_ctl(epollfd, EPOLL_CTL_DEL, fd, 0);
-    close(fd);
+    int ret = close(fd);
+    printf("[epoll_delfd] ret = %d errno = %d\n", ret, errno);
 }
 
 void sio_handler(int signum) {
@@ -203,6 +205,15 @@ void processpool<T>::setup_sig_pipe() {
 
 }
 
+void test_epoll_addfd_lt(int epollfd, int fd) {
+
+    epoll_event ev;
+    ev.events = EPOLLIN;
+    ev.data.fd = fd;
+    epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &ev);
+
+}
+
 template<typename T>
 void processpool<T>::run_parent() {
 
@@ -212,6 +223,12 @@ void processpool<T>::run_parent() {
 
     // listen to the CREATED services socket
     epoll_addfd(m_epollfd, m_listenfd);
+    // NOTES:
+    //  m_listenfd should be set as nonblocking and accept in a while(),
+    //  to be used in EPOLLET mode 
+    //  (check out `man epoll` for suggested use of edge-trigger !)
+    //setnonblocking(m_listenfd);
+
     // sio
     setup_sig_pipe();
 
@@ -249,9 +266,9 @@ void processpool<T>::run_parent() {
 
                 // send a flag to the selected sub process
                 // NOTE: accept(m_listenfd) in the selected sub process
-                char has_new_conn = '1';
+                char has_new_conn[2] = "1";
                 send(m_sub_process[sel].m_pipefd[k_parent_wfd_idx], 
-                     (char*)&has_new_conn, sizeof(has_new_conn), 0);
+                     has_new_conn, sizeof(has_new_conn), 0);
                 printf("[parent] notify proc-%d\n", sel);
             } else if (ev_fd == sig_pipefd[k_sig_rfd_idx] && (ev_event & EPOLLIN)) {
                 // process signal
@@ -305,6 +322,9 @@ void processpool<T>::run_child() {
 
     setup_epoll();
 
+    // NOTES: see NOTES in run_parent()
+    setnonblocking(m_listenfd);
+
     // ipc with parent
     int ipc_pipefd = m_sub_process[m_sub_idx].m_pipefd[k_child_rfd_idx];
     epoll_addfd(m_epollfd, ipc_pipefd);
@@ -334,6 +354,7 @@ void processpool<T>::run_child() {
                 // retrive notify from parent process
                 // and accept new client from service socket
                 char msg[10];
+                memset(msg, 0, sizeof(msg));
                 ret = recv(ev_fd, msg, sizeof(msg), 0);
                 if ((ret < 0 && errno != EAGAIN) || !ret) {
                     // non-blocking way
@@ -341,30 +362,48 @@ void processpool<T>::run_child() {
                     continue;
                 } else {
                     printf("[proc-%d] (ret = %d errno = %d) got msg: \"%s\"\n", m_sub_idx, ret, errno, msg);
+
                     // (a) accept a client from the CREATED service socket
-                    struct sockaddr_in client_addr;
-                    socklen_t client_addrlen;
-                    int client_sockfd = accept(m_listenfd, 
-                                           (struct sockaddr *)&client_addr,
-                                           &client_addrlen);
-                    if (client_sockfd < 0) {
-                        printf("[proc-%d] [accept] errno = %d\n", m_sub_idx, errno);
-                        continue;
+
+                    // NOTES: should accept() listened socket in a while()
+                    //        when listened fd is added to epoll in EPOLLET
+                    int max_accept_n = k_max_accept_n;
+                    while (max_accept_n --) {
+                        struct sockaddr_in client_addr;
+                        socklen_t client_addrlen = sizeof(client_addr);
+                        int client_sockfd = accept(m_listenfd, 
+                                                   (struct sockaddr *)&client_addr,
+                                                   &client_addrlen);
+                        if (client_sockfd < 0) {
+                            printf("[proc-%d] [accept] errno = %d\n", m_sub_idx, errno);
+                            break;
+                        }
+                        if (!clients[client_sockfd].is_init(-1)) {
+                            printf("[proc-%d] accept to quick !\n", m_sub_idx);
+                            close(client_sockfd);
+                            break;
+                        }
+                    
+                        char ip[16];
+                        printf("[run_child()] client_sockfd = %d, addr = %s:%d \n", 
+                               client_sockfd,
+                               inet_ntop(AF_INET, &client_addr.sin_addr, ip, INET_ADDRSTRLEN),
+                               ntohs(client_addr.sin_port));
+                        // TODO: (b) init for new client
+                        clients[client_sockfd].init(m_epollfd, client_sockfd, client_addr);
+
+                        // TODO: (c) add accepted client_sockfd to epoll
+                        epoll_addfd(m_epollfd, client_sockfd);
+
+                        int client_opt;
+                        client_opt = fcntl(client_sockfd, F_GETFL);
+                        printf("client_opt %d (before setnonblocking())\n", client_opt);
+
+                        setnonblocking(client_sockfd);
+
+                        client_opt = fcntl(client_sockfd, F_GETFL);
+                        printf("client_opt %d (after setnonblocking())\n", client_opt);
                     }
-                    // TODO: (b) init for new client
-                    clients[client_sockfd].init(m_epollfd, client_sockfd, client_addr);
-
-                    // TODO: (c) add accepted client_sockfd to epoll
-                    epoll_addfd(m_epollfd, client_sockfd);
-
-                    int client_opt;
-                    client_opt = fcntl(client_sockfd, F_GETFL);
-                    printf("client_opt %d (before setnonblocking())\n", client_opt);
-
-                    setnonblocking(client_sockfd);
-
-                    client_opt = fcntl(client_sockfd, F_GETFL);
-                    printf("client_opt %d (after setnonblocking())\n", client_opt);
 
                 }
 

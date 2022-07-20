@@ -1,0 +1,820 @@
+5142  00:55:49.240797 socket(AF_INET, SOCK_STREAM, IPPROTO_IP) = 3
+5142  00:55:49.241039 bind(3, {sa_family=AF_INET, sin_port=htons(11111), sin_addr=inet_addr("192.168.56.2")}, 16) = 0
+5142  00:55:49.241147 listen(3, 5)      = 0
+5142  00:55:49.241229 socketpair(AF_UNIX, SOCK_STREAM, 0, [4, 5]) = 0
+5142  00:55:49.241480 socketpair(AF_UNIX, SOCK_STREAM, 0, [6, 7]) = 0
+5143  00:55:49.243858 socketpair(AF_UNIX, SOCK_STREAM, 0, [6, 7]) = 0
+5142  00:55:56.185786 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:56.186092 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:56.186431 accept(3, {sa_family=AF_INET, sin_port=htons(40336), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:56.188163 recvfrom(8, "", 2048, 0, NULL, NULL) = 0
+5142  00:55:57.192851 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.194638 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.195393 accept(3, {sa_family=AF_INET, sin_port=htons(40338), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.200170 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.208259 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.210189 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.210675 accept(3, {sa_family=AF_INET, sin_port=htons(40340), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.211792 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.221630 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.222249 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.222621 accept(3, {sa_family=AF_INET, sin_port=htons(40342), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.224071 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.227439 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.229547 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.230367 accept(3, {sa_family=AF_INET, sin_port=htons(40344), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.232351 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.236443 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.237607 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.237899 accept(3, {sa_family=AF_INET, sin_port=htons(40346), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.239095 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.241862 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.245770 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.246122 accept(3, {sa_family=AF_INET, sin_port=htons(40348), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.248169 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.256002 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.257183 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.257349 accept(3, {sa_family=AF_INET, sin_port=htons(40350), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.259266 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.262188 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.264772 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.264938 accept(3, {sa_family=AF_INET, sin_port=htons(40352), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.265243 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.266471 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.266729 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.267501 accept(3, {sa_family=AF_INET, sin_port=htons(40354), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.268050 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.273376 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.274115 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.274238 accept(3, {sa_family=AF_INET, sin_port=htons(40356), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.275450 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.276922 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.279180 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.279623 accept(3, {sa_family=AF_INET, sin_port=htons(40358), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.281773 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.283035 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.283310 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.284923 accept(3, {sa_family=AF_INET, sin_port=htons(40360), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.285946 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.288279 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.289108 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.290996 accept(3, {sa_family=AF_INET, sin_port=htons(40362), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.292800 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.297323 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.298216 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.298368 accept(3, {sa_family=AF_INET, sin_port=htons(40364), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.298711 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.301266 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.301643 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.301760 accept(3, {sa_family=AF_INET, sin_port=htons(40366), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.302064 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.303603 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.303974 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.304132 accept(3, {sa_family=AF_INET, sin_port=htons(40368), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.304515 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.305386 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.306290 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.306441 accept(3, {sa_family=AF_INET, sin_port=htons(40370), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.306742 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.307491 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.307732 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.307836 accept(3, {sa_family=AF_INET, sin_port=htons(40372), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.308129 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.308914 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.309386 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.309525 accept(3, {sa_family=AF_INET, sin_port=htons(40374), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.314220 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.317168 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.320221 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.320944 accept(3, {sa_family=AF_INET, sin_port=htons(40376), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.321389 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.324596 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.325166 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.325297 accept(3, {sa_family=AF_INET, sin_port=htons(40378), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.325603 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.328375 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.328811 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.329817 accept(3, {sa_family=AF_INET, sin_port=htons(40380), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.332384 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.335008 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.336894 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.339106 accept(3, {sa_family=AF_INET, sin_port=htons(40382), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.339590 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.341402 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.341701 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.343043 accept(3, {sa_family=AF_INET, sin_port=htons(40384), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.343461 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.347319 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.347716 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.351593 accept(3, {sa_family=AF_INET, sin_port=htons(40386), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.352650 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.358220 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.358527 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.359049 accept(3, {sa_family=AF_INET, sin_port=htons(40388), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.360494 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.362700 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.364201 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.364345 accept(3, {sa_family=AF_INET, sin_port=htons(40390), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.365422 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.368612 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.369641 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.370418 accept(3, {sa_family=AF_INET, sin_port=htons(40392), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.371413 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.375096 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.376065 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.377109 accept(3, {sa_family=AF_INET, sin_port=htons(40394), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.379351 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.381792 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.383829 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.386214 accept(3, {sa_family=AF_INET, sin_port=htons(40396), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.386890 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.389514 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.390547 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.390789 accept(3, {sa_family=AF_INET, sin_port=htons(40398), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.392391 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.395203 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.396462 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.396760 accept(3, {sa_family=AF_INET, sin_port=htons(40400), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.397612 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.400447 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.400978 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.402080 accept(3, {sa_family=AF_INET, sin_port=htons(40402), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.404424 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.406937 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.407505 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.408798 accept(3, {sa_family=AF_INET, sin_port=htons(40404), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.411172 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.415120 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.415793 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.417295 accept(3, {sa_family=AF_INET, sin_port=htons(40406), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.417709 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.420365 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.421040 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.421740 accept(3, {sa_family=AF_INET, sin_port=htons(40408), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.423298 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.426115 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.428303 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.430729 accept(3, {sa_family=AF_INET, sin_port=htons(40410), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.432199 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.436155 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.437079 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.438195 accept(3, {sa_family=AF_INET, sin_port=htons(40412), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.438705 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.441710 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.442496 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.442726 accept(3, {sa_family=AF_INET, sin_port=htons(40414), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.444309 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.447065 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.447805 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.448175 accept(3, {sa_family=AF_INET, sin_port=htons(40416), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.449204 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.451598 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.452300 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.452896 accept(3, {sa_family=AF_INET, sin_port=htons(40418), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.453905 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.457395 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.459532 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.459729 accept(3, {sa_family=AF_INET, sin_port=htons(40420), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.460039 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.461850 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.463071 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.463242 accept(3, {sa_family=AF_INET, sin_port=htons(40422), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.464784 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.466735 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.467734 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.468165 accept(3, {sa_family=AF_INET, sin_port=htons(40424), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.469357 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.470779 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.472425 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.472573 accept(3, {sa_family=AF_INET, sin_port=htons(40426), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.472936 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.476209 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.476560 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.476904 accept(3, {sa_family=AF_INET, sin_port=htons(40428), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.477751 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.480031 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.481554 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.481766 accept(3, {sa_family=AF_INET, sin_port=htons(40430), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.483781 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.486591 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.487742 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.488388 accept(3, {sa_family=AF_INET, sin_port=htons(40432), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.489226 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.491164 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.491712 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.492756 accept(3, {sa_family=AF_INET, sin_port=htons(40434), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.494101 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.495462 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.496428 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.497019 accept(3, {sa_family=AF_INET, sin_port=htons(40436), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.498639 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.499736 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.500369 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.501563 accept(3, {sa_family=AF_INET, sin_port=htons(40438), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.501975 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.503931 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.504577 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.504780 accept(3, {sa_family=AF_INET, sin_port=htons(40440), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.506771 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.509717 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.509999 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.510393 accept(3, {sa_family=AF_INET, sin_port=htons(40442), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.511616 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.514292 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.515347 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.515689 accept(3, {sa_family=AF_INET, sin_port=htons(40444), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.516947 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.518687 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.520138 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.520344 accept(3, {sa_family=AF_INET, sin_port=htons(40446), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.521051 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.525081 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.525880 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.526695 accept(3, {sa_family=AF_INET, sin_port=htons(40448), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.528178 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.530371 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.531446 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.532805 accept(3, {sa_family=AF_INET, sin_port=htons(40450), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.533942 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.536427 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.536982 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.537619 accept(3, {sa_family=AF_INET, sin_port=htons(40452), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.538637 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.541282 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.542027 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.542151 accept(3, {sa_family=AF_INET, sin_port=htons(40454), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.542658 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.544817 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.546178 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.546574 accept(3, {sa_family=AF_INET, sin_port=htons(40456), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.547604 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.551010 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.551965 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.552479 accept(3, {sa_family=AF_INET, sin_port=htons(40458), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.553786 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.555456 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.555887 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.557333 accept(3, {sa_family=AF_INET, sin_port=htons(40460), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.557697 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.558719 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.558974 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.559263 accept(3, {sa_family=AF_INET, sin_port=htons(40462), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.559843 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.562265 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.562843 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.564157 accept(3, {sa_family=AF_INET, sin_port=htons(40464), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.564887 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.566417 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.567682 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.567981 accept(3, {sa_family=AF_INET, sin_port=htons(40466), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.568506 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.571087 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.571496 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.572490 accept(3, {sa_family=AF_INET, sin_port=htons(40468), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.573061 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.574894 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.576222 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.576496 accept(3, {sa_family=AF_INET, sin_port=htons(40470), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.577045 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.579074 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.580250 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.580374 accept(3, {sa_family=AF_INET, sin_port=htons(40472), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.581209 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.584144 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.584511 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.584762 accept(3, {sa_family=AF_INET, sin_port=htons(40474), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.585910 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.586957 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.587544 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.587738 accept(3, {sa_family=AF_INET, sin_port=htons(40476), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.588623 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.591550 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.592053 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.592173 accept(3, {sa_family=AF_INET, sin_port=htons(40478), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.592901 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.594465 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.595054 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.595320 accept(3, {sa_family=AF_INET, sin_port=htons(40480), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.597381 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.598949 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.599257 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.599368 accept(3, {sa_family=AF_INET, sin_port=htons(40482), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.600439 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.602488 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.603498 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.604084 accept(3, {sa_family=AF_INET, sin_port=htons(40484), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.604604 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.606561 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.606864 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.607088 accept(3, {sa_family=AF_INET, sin_port=htons(40486), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.608044 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.613429 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.614690 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.614822 accept(3, {sa_family=AF_INET, sin_port=htons(40488), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.615560 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.619059 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.619339 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.619725 accept(3, {sa_family=AF_INET, sin_port=htons(40490), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.620421 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.621993 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.622365 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.622895 accept(3, {sa_family=AF_INET, sin_port=htons(40492), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.624146 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.626971 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.628143 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.628266 accept(3, {sa_family=AF_INET, sin_port=htons(40494), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.628916 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.630947 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.632243 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.632475 accept(3, {sa_family=AF_INET, sin_port=htons(40496), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.633140 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.634516 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.636470 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.636927 accept(3, {sa_family=AF_INET, sin_port=htons(40498), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.638172 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.639560 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.639813 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.640345 accept(3, {sa_family=AF_INET, sin_port=htons(40500), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.641310 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.644871 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.645363 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.646260 accept(3, {sa_family=AF_INET, sin_port=htons(40502), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.647046 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.648233 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.648468 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.649009 accept(3, {sa_family=AF_INET, sin_port=htons(40504), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.650156 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.651937 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.653134 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.653502 accept(3, {sa_family=AF_INET, sin_port=htons(40506), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.655747 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.657292 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.657756 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.658105 accept(3, {sa_family=AF_INET, sin_port=htons(40508), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.659775 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.661380 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.662139 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.662289 accept(3, {sa_family=AF_INET, sin_port=htons(40510), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.664562 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.666084 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.666978 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.667326 accept(3, {sa_family=AF_INET, sin_port=htons(40512), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.667866 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.669645 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.670354 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.673374 accept(3, {sa_family=AF_INET, sin_port=htons(40514), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.673811 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.675396 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.676026 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.676253 accept(3, {sa_family=AF_INET, sin_port=htons(40516), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.677273 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.679100 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.680421 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.681819 accept(3, {sa_family=AF_INET, sin_port=htons(40518), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.682643 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.684370 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.685521 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.685904 accept(3, {sa_family=AF_INET, sin_port=htons(40520), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.686773 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.689758 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.690333 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.690524 accept(3, {sa_family=AF_INET, sin_port=htons(40522), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.691426 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.693002 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.693352 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.693755 accept(3, {sa_family=AF_INET, sin_port=htons(40524), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.694490 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.698472 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.699061 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.699190 accept(3, {sa_family=AF_INET, sin_port=htons(40526), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.700019 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.701843 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.702513 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.702711 accept(3, {sa_family=AF_INET, sin_port=htons(40528), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.703384 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.706565 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.707055 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.707169 accept(3, {sa_family=AF_INET, sin_port=htons(40530), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.708740 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.714902 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.715192 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.715318 accept(3, {sa_family=AF_INET, sin_port=htons(40532), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.716747 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.718272 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.718533 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.718824 accept(3, {sa_family=AF_INET, sin_port=htons(40534), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.719249 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.720478 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.722741 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.722913 accept(3, {sa_family=AF_INET, sin_port=htons(40536), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.723846 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.724765 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.725249 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.725366 accept(3, {sa_family=AF_INET, sin_port=htons(40538), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.725785 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.729169 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.729534 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.729682 accept(3, {sa_family=AF_INET, sin_port=htons(40540), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.730524 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.732298 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.732579 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.732846 accept(3, {sa_family=AF_INET, sin_port=htons(40542), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.734121 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.735410 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.735832 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.735948 accept(3, {sa_family=AF_INET, sin_port=htons(40544), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.736516 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.738143 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.740227 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.740370 accept(3, {sa_family=AF_INET, sin_port=htons(40546), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.741122 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.742347 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.742991 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.743171 accept(3, {sa_family=AF_INET, sin_port=htons(40548), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.743627 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.745534 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.745984 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.746310 accept(3, {sa_family=AF_INET, sin_port=htons(40550), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.747190 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.748496 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.750574 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.750796 accept(3, {sa_family=AF_INET, sin_port=htons(40552), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.751611 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.752438 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.753016 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.753130 accept(3, {sa_family=AF_INET, sin_port=htons(40554), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.754017 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.757499 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.757839 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.757971 accept(3, {sa_family=AF_INET, sin_port=htons(40556), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.759157 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.760148 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.760454 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.760585 accept(3, {sa_family=AF_INET, sin_port=htons(40558), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.766331 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.767581 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.768107 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.768422 accept(3, {sa_family=AF_INET, sin_port=htons(40560), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.769951 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.771086 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.771637 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.771745 accept(3, {sa_family=AF_INET, sin_port=htons(40562), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.772214 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.774786 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.775052 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.775287 accept(3, {sa_family=AF_INET, sin_port=htons(40564), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.775781 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.776974 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.777336 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.777450 accept(3, {sa_family=AF_INET, sin_port=htons(40566), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.779012 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.780185 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.781092 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.781511 accept(3, {sa_family=AF_INET, sin_port=htons(40568), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.783445 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.785089 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.785631 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.785771 accept(3, {sa_family=AF_INET, sin_port=htons(40570), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.786241 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.787513 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.787777 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.787883 accept(3, {sa_family=AF_INET, sin_port=htons(40572), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.788346 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.790938 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.791379 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.791511 accept(3, {sa_family=AF_INET, sin_port=htons(40574), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.792008 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.793063 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.795689 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.795855 accept(3, {sa_family=AF_INET, sin_port=htons(40576), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.796484 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.797872 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.798171 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.798382 accept(3, {sa_family=AF_INET, sin_port=htons(40578), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.798886 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.799965 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.800299 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.800479 accept(3, {sa_family=AF_INET, sin_port=htons(40580), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.801091 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.803361 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.803711 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.804009 accept(3, {sa_family=AF_INET, sin_port=htons(40582), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.805121 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.805860 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.806287 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.808458 accept(3, {sa_family=AF_INET, sin_port=htons(40584), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.808908 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.809976 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.810371 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.810552 accept(3, {sa_family=AF_INET, sin_port=htons(40586), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.811042 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.812542 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.812945 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.813068 accept(3, {sa_family=AF_INET, sin_port=htons(40588), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.814007 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.817494 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.817995 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.818508 accept(3, {sa_family=AF_INET, sin_port=htons(40590), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.818855 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.819934 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.820259 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.820431 accept(3, {sa_family=AF_INET, sin_port=htons(40592), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.821030 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.822153 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.822604 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.822765 accept(3, {sa_family=AF_INET, sin_port=htons(40594), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.823744 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.825311 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.825713 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.825898 accept(3, {sa_family=AF_INET, sin_port=htons(40596), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.826500 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.829885 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.830309 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.830626 accept(3, {sa_family=AF_INET, sin_port=htons(40598), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.831099 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.832217 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.832601 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.832794 accept(3, {sa_family=AF_INET, sin_port=htons(40600), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.833251 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.834394 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.834700 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.834813 accept(3, {sa_family=AF_INET, sin_port=htons(40602), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.835495 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.839769 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.840276 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.840420 accept(3, {sa_family=AF_INET, sin_port=htons(40604), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.840909 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.842025 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.842720 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.842869 accept(3, {sa_family=AF_INET, sin_port=htons(40606), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.843393 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.844569 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.845074 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.845234 accept(3, {sa_family=AF_INET, sin_port=htons(40608), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.845826 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.847743 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.848283 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.848435 accept(3, {sa_family=AF_INET, sin_port=htons(40610), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.849189 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.853371 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.854384 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.854503 accept(3, {sa_family=AF_INET, sin_port=htons(40612), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.854836 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.855731 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.856200 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.856385 accept(3, {sa_family=AF_INET, sin_port=htons(40614), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.856963 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.858078 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.858497 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.858608 accept(3, {sa_family=AF_INET, sin_port=htons(40616), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.859333 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.860159 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.860519 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.860716 accept(3, {sa_family=AF_INET, sin_port=htons(40618), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.861177 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.863418 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.863794 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.863975 accept(3, {sa_family=AF_INET, sin_port=htons(40620), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.864502 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.865576 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.866185 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.866679 accept(3, {sa_family=AF_INET, sin_port=htons(40622), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.868935 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.870201 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.870490 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.870743 accept(3, {sa_family=AF_INET, sin_port=htons(40624), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.871203 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.872826 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.873225 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.873370 accept(3, {sa_family=AF_INET, sin_port=htons(40626), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.874243 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.876463 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.877084 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.877219 accept(3, {sa_family=AF_INET, sin_port=htons(40628), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.884967 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.886209 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.886630 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.886806 accept(3, {sa_family=AF_INET, sin_port=htons(40630), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.887420 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.888836 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.889370 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.889481 accept(3, {sa_family=AF_INET, sin_port=htons(40632), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.889862 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.891132 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.892117 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.892310 accept(3, {sa_family=AF_INET, sin_port=htons(40634), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.893899 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.895819 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.896457 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.896588 accept(3, {sa_family=AF_INET, sin_port=htons(40636), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.897204 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.901965 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.902755 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.903144 accept(3, {sa_family=AF_INET, sin_port=htons(40638), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.905406 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.906689 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.908088 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.908233 accept(3, {sa_family=AF_INET, sin_port=htons(40640), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.909250 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.915633 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.916023 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.916944 accept(3, {sa_family=AF_INET, sin_port=htons(40642), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.918730 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.920279 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.921507 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.921693 accept(3, {sa_family=AF_INET, sin_port=htons(40644), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.922861 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.924849 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.925236 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.925616 accept(3, {sa_family=AF_INET, sin_port=htons(40646), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.927353 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.929265 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.930495 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.930657 accept(3, {sa_family=AF_INET, sin_port=htons(40648), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.931235 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.933779 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.934641 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.935395 accept(3, {sa_family=AF_INET, sin_port=htons(40650), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.936132 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.938758 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.941086 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.941451 accept(3, {sa_family=AF_INET, sin_port=htons(40652), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.942129 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.944471 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.946156 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.946420 accept(3, {sa_family=AF_INET, sin_port=htons(40654), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.947386 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.950234 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.951658 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.952053 accept(3, {sa_family=AF_INET, sin_port=htons(40656), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.953763 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.956401 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.958190 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.958848 accept(3, {sa_family=AF_INET, sin_port=htons(40658), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.960504 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.963317 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.964388 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.964767 accept(3, {sa_family=AF_INET, sin_port=htons(40660), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.966510 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.968826 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.969947 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.970920 accept(3, {sa_family=AF_INET, sin_port=htons(40662), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.972231 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.975493 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.976825 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.977907 accept(3, {sa_family=AF_INET, sin_port=htons(40664), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.979295 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.981903 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.985624 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.986060 accept(3, {sa_family=AF_INET, sin_port=htons(40666), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.987387 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.990839 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.991724 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.992556 accept(3, {sa_family=AF_INET, sin_port=htons(40668), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.993566 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:57.997127 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:57.998021 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:57.998416 accept(3, {sa_family=AF_INET, sin_port=htons(40670), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:57.999753 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.002363 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.003706 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.003950 accept(3, {sa_family=AF_INET, sin_port=htons(40672), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.005382 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.007269 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.008562 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.009061 accept(3, {sa_family=AF_INET, sin_port=htons(40674), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.010425 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.013586 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.014341 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.014479 accept(3, {sa_family=AF_INET, sin_port=htons(40676), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.016433 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.019082 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.020585 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.020951 accept(3, {sa_family=AF_INET, sin_port=htons(40678), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.022608 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.025101 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.026490 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.026979 accept(3, {sa_family=AF_INET, sin_port=htons(40680), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.028573 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.031910 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.033615 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.034203 accept(3, {sa_family=AF_INET, sin_port=htons(40682), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.035137 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.038792 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.039147 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.039449 accept(3, {sa_family=AF_INET, sin_port=htons(40684), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.040653 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.044045 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.045525 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.045826 accept(3, {sa_family=AF_INET, sin_port=htons(40686), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.047640 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.050133 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.050904 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.051574 accept(3, {sa_family=AF_INET, sin_port=htons(40688), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.052849 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.056568 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.057649 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.058429 accept(3, {sa_family=AF_INET, sin_port=htons(40690), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.059249 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.062529 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.063195 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.063852 accept(3, {sa_family=AF_INET, sin_port=htons(40692), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.066762 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.069467 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.071027 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.071261 accept(3, {sa_family=AF_INET, sin_port=htons(40694), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.072242 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.075983 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.077516 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.077704 accept(3, {sa_family=AF_INET, sin_port=htons(40696), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.078010 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.080576 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.081281 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.081483 accept(3, {sa_family=AF_INET, sin_port=htons(40698), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.083640 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.086418 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.087471 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.087811 accept(3, {sa_family=AF_INET, sin_port=htons(40700), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.090282 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.095814 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.097740 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.098642 accept(3, {sa_family=AF_INET, sin_port=htons(40702), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.100492 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.103014 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.104872 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.105044 accept(3, {sa_family=AF_INET, sin_port=htons(40704), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.108224 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.112226 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.112652 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.113130 accept(3, {sa_family=AF_INET, sin_port=htons(40706), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.114085 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.117687 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.117975 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.118085 accept(3, {sa_family=AF_INET, sin_port=htons(40708), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.119661 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.122527 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.123389 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.123715 accept(3, {sa_family=AF_INET, sin_port=htons(40710), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.125519 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.130170 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.131265 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.131579 accept(3, {sa_family=AF_INET, sin_port=htons(40712), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.133559 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.135775 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.137751 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.138675 accept(3, {sa_family=AF_INET, sin_port=htons(40714), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.140091 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.145363 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.146554 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.146877 accept(3, {sa_family=AF_INET, sin_port=htons(40716), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.148223 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.150764 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.151183 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.152588 accept(3, {sa_family=AF_INET, sin_port=htons(40718), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.154662 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.158553 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.158877 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.159098 accept(3, {sa_family=AF_INET, sin_port=htons(40720), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.161540 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.163712 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.167888 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.168170 accept(3, {sa_family=AF_INET, sin_port=htons(40722), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.168873 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.174544 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.176437 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.176580 accept(3, {sa_family=AF_INET, sin_port=htons(40724), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.178518 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.181472 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.184911 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.185347 accept(3, {sa_family=AF_INET, sin_port=htons(40726), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.187871 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:55:58.189391 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:55:58.195974 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:55:58.196314 accept(3, {sa_family=AF_INET, sin_port=htons(40728), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:55:58.197120 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:56:03.787243 --- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+5143  00:56:03.787297 --- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+5142  00:56:12.554023 --- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+5143  00:56:12.554083 --- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+5142  00:57:12.208784 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:57:12.209169 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:57:12.209406 accept(3, {sa_family=AF_INET, sin_port=htons(40730), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:57:12.209956 recvfrom(8, "GET / HTTP/1.0\r\nUser-Agent: WebBench 1.5\r\nHost: 192.168.56.2\r\n\r\n", 2048, 0, NULL, NULL) = 64
+5142  00:57:13.215383 sendto(5, "1\0", 2, 0, NULL, 0) = 2
+5143  00:57:13.216130 recvfrom(4, "1\0", 10, 0, NULL, NULL) = 2
+5143  00:57:13.216645 accept(3, {sa_family=AF_INET, sin_port=htons(40734), sin_addr=inet_addr("192.168.56.2")}, [16]) = 8
+5143  00:57:13.220574 recvfrom(8, "", 2048, 0, NULL, NULL) = 0
+5142  00:57:21.688121 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+5143  00:57:21.688229 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+5142  00:57:21.688434 sendto(7, "\2", 1, 0, NULL, 0 <unfinished ...>
+5143  00:57:21.688562 sendto(7, "\2", 1, 0, NULL, 0 <unfinished ...>
+5142  00:57:21.688934 <... sendto resumed>) = 1
+5143  00:57:21.689000 <... sendto resumed>) = 1
+5142  00:57:21.689858 recvfrom(6,  <unfinished ...>
+5143  00:57:21.689920 recvfrom(6,  <unfinished ...>
+5142  00:57:21.690080 <... recvfrom resumed>"\2", 10, 0, NULL, NULL) = 1
+5143  00:57:21.690179 <... recvfrom resumed>"\2", 10, 0, NULL, NULL) = 1
+5142  00:57:21.693859 +++ exited with 0 +++
+5143  00:57:21.694041 --- SIGTERM {si_signo=SIGTERM, si_code=SI_USER, si_pid=5142, si_uid=0} ---
+5143  00:57:21.694183 sendto(7, "\17", 1, 0, NULL, 0) = 1
+5143  00:57:21.721185 +++ exited with 0 +++

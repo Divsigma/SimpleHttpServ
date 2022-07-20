@@ -121,6 +121,10 @@ void ReqStatMach::init(int epollfd, int sockfd, const struct sockaddr_in addr)
     memset(recvbuf, 0, sizeof(recvbuf));
 
     printf("client inited\n");
+    char ip[16];
+    printf("[init] addr = %s:%d \n", 
+           inet_ntop(AF_INET, &(this->m_addr).sin_addr, ip, INET_ADDRSTRLEN), 
+           ntohs((this->m_addr).sin_port));
     printf("--------\n");
 }
 
@@ -151,7 +155,7 @@ void ReqStatMach::process() {
         break;
       } else {
         char ip[16];
-        printf("[ReqStatMach] recv from (%s:%d): %s\n", 
+        printf("[ReqStatMach] recv from (%s:%d): \n'''\n%s\n'''\n", 
                inet_ntop(AF_INET, &(this->m_addr).sin_addr, ip, INET_ADDRSTRLEN), 
                ntohs((this->m_addr).sin_port),
                this->recvbuf + this->m_read_idx);
@@ -178,10 +182,10 @@ void ReqStatMach::process() {
           break;
         case RES_DONE_RECV:
           printf("[~] done receiving\n----------------\n");
-          this->respond_http();
+          //this->respond_http();
           epoll_delfd(this->m_epollfd, this->m_sockfd);
           // close(this->m_sockfd);
-          printf("----[[Done respond http]]----\n========================\n");
+          //printf("----[[Done respond http]]----\n========================\n");
           // close(this->m_sockfd);
           break;
         default:
@@ -191,6 +195,8 @@ void ReqStatMach::process() {
                  res);
           break;
     }
+
+    this->m_sockfd = -1;
 
 }
 
@@ -361,7 +367,7 @@ void ReqStatMach::respond_http() {
 
       char peer_ip[INET_ADDRSTRLEN];
       inet_ntop(AF_INET, &peer_sockaddr.sin_addr, peer_ip, INET_ADDRSTRLEN);
-      printf("[Connected] peer socket %s:%u\n", 
+      printf("[respond_http] peer socket %s:%u\n", 
              peer_ip, ntohs(peer_sockaddr.sin_port));
 
       int headbuf_used_len = 0;
@@ -402,6 +408,8 @@ void ReqStatMach::respond_http() {
       iov[1].iov_len  = databuf_used_len;
       
       ret = writev(peer_sockfd, iov, iovcnt);
+
+      printf("[respond_http] writev ret = %d errno = %d\n", ret, errno);
 
 }
 
