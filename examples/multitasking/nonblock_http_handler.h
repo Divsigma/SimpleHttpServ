@@ -406,7 +406,10 @@ void ReqStatMach::respond_http() {
       iov[0].iov_len  = headbuf_used_len;
       iov[1].iov_base = data_buf;
       iov[1].iov_len  = databuf_used_len;
-      
+
+      int opt = fcntl(peer_sockfd, F_GETFL);
+      printf("writev peer_sockfd, opt=%d, opt&O_NONBLOCK=%d\n", opt, opt & O_NONBLOCK);
+
       ret = writev(peer_sockfd, iov, iovcnt);
 
       printf("[respond_http] writev ret = %d errno = %d\n", ret, errno);

@@ -88,6 +88,13 @@ private:
 template<typename T>
 processpool<T>* processpool<T>::m_instance = NULL;
 
+static int setnonblocking(int fd) {
+    int old_opt = fcntl(fd, F_GETFL);
+    int new_opt = old_opt | O_NONBLOCK;
+    fcntl(fd, F_SETFL, new_opt);
+    return old_opt;
+}
+
 // processpool constructor
 template<typename T>
 processpool<T>::processpool(int listenfd, int num_process)
@@ -111,12 +118,14 @@ processpool<T>::processpool(int listenfd, int num_process)
         m_sub_process[i].m_pid = pid;
         if (!pid) {
             // child
+            setnonblocking(m_sub_process[i].m_pipefd[k_child_rfd_idx]);
             close(m_sub_process[i].m_pipefd[k_parent_wfd_idx]);
             //close(m_sub_process[i].m_pipefd[1 - k_child_rfd_idx]);
             m_sub_idx = i;
             break;
         } else {
             // parent
+            setnonblocking(m_sub_process[i].m_pipefd[k_parent_wfd_idx]);
             close(m_sub_process[i].m_pipefd[k_child_rfd_idx]);
             //close(m_sub_process[i].m_pipefd[1 - k_parent_wfd_idx]);
             continue;
@@ -142,12 +151,7 @@ void processpool<T>::setup_epoll() {
     assert(m_epollfd != -1);
 }
 
-static int setnonblocking(int fd) {
-    int old_opt = fcntl(fd, F_GETFL);
-    int new_opt = old_opt | O_NONBLOCK;
-    fcntl(fd, F_SETFL, new_opt);
-    return old_opt;
-}
+
 
 void epoll_addfd(int epollfd, int fd) {
 
@@ -222,7 +226,8 @@ void processpool<T>::run_parent() {
     // ipc with children is set to m_sub_process[].m_pipefd[wfd]
 
     // listen to the CREATED services socket
-    epoll_addfd(m_epollfd, m_listenfd);
+    //epoll_addfd(m_epollfd, m_listenfd);
+    test_epoll_addfd_lt(m_epollfd, m_listenfd);
     // NOTES:
     //  m_listenfd should be set as nonblocking and accept in a while(),
     //  to be used in EPOLLET mode 
